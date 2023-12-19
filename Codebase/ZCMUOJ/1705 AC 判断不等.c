@@ -2,7 +2,7 @@
 int main(){
 	int i,j,m,n,c,k,flag=0;
 	char a[100000];
-	while((scanf("%s",&a))!=EOF){
+	while((scanf("%s",a))!=EOF){
 		k=strlen(a);flag=1;
 		for(i=1;i<=k;i++){
 			if(k%i==0){
