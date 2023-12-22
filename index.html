@@ -39,16 +39,16 @@
 <script>
 function showTime(clock){
     var now = new Date();
-    var year = now.getFullYear();
+    var year = now.getFullYear()-1911;
     var month= now.getMonth();
     var day = now.getDate();
     var hour = now.getHours();
     var minu = now.getMinutes();
     var second = now.getSeconds();
     month = month+1;
-    var arr_work = new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+    var arr_work = new Array("周日","周一","周二","周三","周四","周五","周六");
     var week = arr_work[ now.getDay()];
-    var time = "民國"+year-1911+"年"+month+"月"+day+"日 "+ week+" "+hour+":"+minu+":"+second;
+    var time = "民國"+year+"年"+month+"月"+day+"日 "+ week+" "+hour+":"+minu+":"+second;
     clock.innerHTML="Now: "+time;
 }
 window.onload = function(){
