@@ -48,8 +48,8 @@ function showTime(clock){
     month = month+1;
     var arr_work = new Array("周日","周一","周二","周三","周四","周五","周六");
     var week = arr_work[ now.getDay()];
-    var time = "北韩"+year+"年"+month+"月"+day+"日 "+ week+" "+hour+":"+minu+":"+second;
-    clock.innerHTML="當前時間: "+time;
+    var time = year+"-"+month+"-"+day+" "+ week+" "+hour+":"+minu+":"+second;
+    clock.innerHTML="Now:"+time;
 }
 window.onload = function(){
     var clock = document.getElementById("clock");
