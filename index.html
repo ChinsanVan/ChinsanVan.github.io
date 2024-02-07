@@ -46,10 +46,10 @@ function showTime(clock){
     var minu = now.getMinutes();
     var second = now.getSeconds();
     month = month+1;
-    var arr_work = new Array("周日","周一","周二","周三","周四","周五","周六");
+    var arr_work = new Array("Sun","Mon","Tue","Wes","Thur","Fri","Sat");
     var week = arr_work[ now.getDay()];
-    var time = year+"-"+month+"-"+day+" "+ week+" "+hour+":"+minu+":"+second;
-    clock.innerHTML="Now:"+time;
+    var time = month+"/"+day+"/"+ year +" "+ week+" "+hour+":"+minu+":"+second;
+    clock.innerHTML=time;
 }
 window.onload = function(){
     var clock = document.getElementById("clock");
