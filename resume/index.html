@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>樊怡豪 (Yihao Fan) - Academic Homepage</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --accent-color: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            padding: 20px 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        /* 头部区域 */
+        .profile-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+
+        .profile-avatar {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .profile-info {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .profile-info h1 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .profile-info .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 8px 15px;
+            font-size: 0.95rem;
+        }
+
+        .links {
+            margin-top: 15px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            background: #eff6ff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid #dbeafe;
+            transition: all 0.2s ease;
+        }
+
+        .links a:hover {
+            background: #dbeafe;
+        }
+
+        /* 模块标题 */
+        section {
+            margin-bottom: 35px;
+        }
+
+        section h2 {
+            font-size: 1.35rem;
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 列表项样式 */
+        .timeline-list, .publication-list, .project-list {
+            list-style: none;
+        }
+
+        .timeline-item, .pub-item, .project-item {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 15px;
+            border-left: 2px solid #e2e8f0;
+        }
+
+        .timeline-item::before, .pub-item::before, .project-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+        }
+
+        .time-label {
+            font-size: 0.88rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .item-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 2px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 4px;
+            margin-right: 6px;
+        }
+
+        .badge-core { background: #fef3c7; color: #92400e; }
+        .badge-q1 { background: #dcfce7; color: #166534; }
+        .badge-q2 { background: #e0f2fe; color: #075985; }
+
+        .pub-authors {
+            font-size: 0.92rem;
+            color: #374151;
+        }
+
+        .pub-authors .author-me {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .pub-journal {
+            font-size: 0.9rem;
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            .profile-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .profile-avatar {
+                width: 120px;
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- 个人基本信息 Header -->
+    <header class="profile-header">
+        <!-- 请替换 avatar.jpg 为你存放头像的实际文件名/路径 -->
+        <img src="avatar.jpg" alt="樊怡豪" class="profile-avatar">
+        
+        <div class="profile-info">
+            <h1>樊怡豪 (Yihao Fan)</h1>
+            <div class="subtitle">浙江中医药大学 · 口腔医学 (5年制学士在读)</div>
+            
+            <div class="info-grid">
+                <div><strong>出生年月：</strong>2004年12月</div>
+                <div><strong>籍贯/出生地：</strong>浙江省宁波市</div>
+                <div><strong>政治面貌：</strong>预备党员</div>
+                <div><strong>预计毕业：</strong>2028年6月</div>
+                <div><strong>电子邮箱：</strong><a href="mailto:dentistfyh@foxmail.com">dentistfyh@foxmail.com</a></div>
+                <div><strong>联系电话：</strong>(+86) 157 2801 2051</div>
+            </div>
+
+            <div class="links">
+                <a href="https://orcid.org/0009-0005-1491-0798" target="_blank">ORCID</a>
+                <a href="https://www.researchgate.net/profile/Yihao-Fan-3" target="_blank">ResearchGate</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 教育经历 -->
+    <section>
+        <h2>🎓 教育经历 / Education</h2>
+        <ul class="timeline-list">
+            <li class="timeline-item">
+                <span class="time-label">2023.09 – 至今 (Sep 2023 – Present)</span>
+                <div class="item-title">浙江中医药大学 (Zhejiang Chinese Medical University)</div>
+                <div class="item-desc">口腔医学专业 | 五年制本科 (Stomatology, 5-Year Program)</div>
+            </li>
+            <li class="timeline-item">
+                <span class="time-label">2020.09 – 2023.06 (Sep 2020 – Jun 2023)</span>
+                <div class="item-title">浙江省宁波市效实中学 - 东部校区 (Ningbo Xiaoshi High School)</div>
+                <div class="item-desc">高中 (High School Education)</div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- 实习/见习经历 -->
+    <section>
+        <h2>🏥 实习与见习经历 / Clinical Experience</h2>
+        <ul class="timeline-list">
+            <li class="timeline-item">
+                <span class="time-label">2026.07 – 2026.08</span>
+                <div class="item-title">上海市口腔医院（复旦大学附属口腔医院 / 上海市口腔健康中心）</div>
+                <div class="item-desc">正畸一科 | 见习导师：黄家亮</div>
+            </li>
+            <li class="timeline-item">
+                <span class="time-label">2025.07 – 2025.08</span>
+                <div class="item-title">宁波大学附属人民医院（宁波市鄞州人民医院）</div>
+                <div class="item-desc">口腔科 | 见习导师：娄荣洋</div>
+            </li>
+            <li class="timeline-item">
+                <span class="time-label">2024.07 – 2024.07</span>
+                <div class="item-title">通策医疗集团（中国科学院大学附属宁波口腔医院）</div>
+                <div class="item-desc">正畸科 | 见习导师：王伟</div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- 发表学术论文 -->
+    <section>
+        <h2>📝 发表学术论文 / Publications</h2>
+        <ul class="publication-list">
+            <li class="pub-item">
+                <span class="badge badge-q1">SCI Q1</span>
+                <div class="pub-authors">Ye X, Liu B, Liu Z, Zheng T, <span class="author-me">Fan Y</span>, Ni J, Ge Q, Wang Z, Chen Q, Mao Y.</div>
+                <div class="item-title">Genetic susceptibility and metabolic pathways linking oral health to metabolic dysfunction-associated steatotic liver disease.</div>
+                <div class="pub-journal">J Periodontol. 2025 Oct 29. DOI: 10.1002/jper.70029</div>
+            </li>
+            <li class="pub-item">
+                <span class="badge badge-q2">SCI Q2</span>
+                <div class="pub-authors">Ni J, Ye X, <span class="author-me">Fan Y</span>, et al.</div>
+                <div class="item-title">Periodontal symptoms, immunometabolic factors and autoimmune diseases: A prospective cohort study.</div>
+                <div class="pub-journal">Dent Med Probl. 2026;63(3):567-578. DOI: 10.17219/dmp/212536</div>
+            </li>
+            <li class="pub-item">
+                <span class="badge badge-q2">SCI Q2</span>
+                <div class="pub-authors">Zhou Y, He C, <span class="author-me">Fan Y</span>, et al.</div>
+                <div class="item-title">Dietary protein, major dietary protein sources, and chronic joint diseases risk.</div>
+                <div class="pub-journal">Nutr Metab (Lond). 2026;23(1):87. DOI: 10.1186/s12986-026-01140-1</div>
+            </li>
+            <li class="pub-item">
+                <span class="badge badge-core">中文核心</span>
+                <div class="pub-authors"><span class="author-me">樊怡豪</span>, 等.</div>
+                <div class="item-title">我国恶性肿瘤发病现状及流行趋势.</div>
+                <div class="pub-journal">中国普外基础与临床杂志, 2025, 32(06): 669-676. DOI: 10.7507/1007-9424.202503095</div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- 主持及参与项目 -->
+    <section>
+        <h2>🔬 主持项目 / Projects</h2>
+        <ul class="project-list">
+            <li class="project-item">
+                <span class="time-label">2026.07 – 2027.07 | 在研</span>
+                <div class="item-title">基于机器学习的“口腔健康-多疾病谱系”交互作用解析与 LLM-Agent 临床决策系统研究</div>
+                <div class="item-desc">
+                    <strong>项目级别：</strong>2026年国家级大学生创新创业训练计划项目 (项目编号: 202610344035, 资助金额: 2万元)<br>
+                    <strong>角色：</strong>项目负责人 (排名 1/6)
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- 竞赛获奖摘要 -->
+    <section>
+        <h2>🏆 竞赛获奖 / Awards & Competitions</h2>
+        <ul class="timeline-list">
+            <li class="timeline-item">
+                <span class="time-label">2024</span>
+                <div class="item-title">MCM/ICM 美国大学生数学建模竞赛 — Meritorious Winner (一等奖)</div>
+                <div class="item-desc">队长，负责核心建模与编程工作</div>
+            </li>
+            <li class="timeline-item">
+                <span class="time-label">2025</span>
+                <div class="item-title">第十六届中国大学生服务外包创新创业大赛（东部区域赛）— 三等奖</div>
+                <div class="item-desc">队长，负责从技术开发到商业模式落地的统筹产品化</div>
+            </li>
+            <li class="timeline-item">
+                <span class="time-label">2025</span>
+                <div class="item-title">第十届 CULSC 全国大学生生命科学竞赛 — 三等奖</div>
+                <div class="item-desc">排序前三，负责实验部分</div>
+            </li>
+        </ul>
+    </section>
+</div>
+
+</body>
+</html>
